@@ -14,5 +14,7 @@ router.post("/product", createProduct);
 router.post("/product/:id", updateProduct);
 router.delete("/product/:id", DeleteProduct);
 router.post("/cat", createCat);
+router.get("/cat/:id", getProductsByCategory);
+
 
 export default router;
