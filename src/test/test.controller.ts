@@ -137,6 +137,12 @@ export const DeleteProduct: RequestHandler = async (req, res, next) => {
 export const getProductsByCategory: RequestHandler = async (req, res, next) => {
     try {
         const { id } = req.params;
+        const category = await prisma.category.findUnique({
+            where: { id: Number(id) }
+        });
+        if (!category) {
+            return res.status(404).json({ success: false, message: "category not found" })
+        }
         const products = await prisma.product.findMany({
             where: { categoryId: Number(id) },
         });
