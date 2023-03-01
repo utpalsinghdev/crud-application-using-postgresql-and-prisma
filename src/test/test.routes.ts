@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createCat, createProduct, DeleteProduct, getAllcategories, getAllProducts, getProductById, healthCheck, updateProduct } from "./test.controller";
+import { createCat, createProduct, DeleteProduct, getAllcategories, getAllProducts, getProductById, healthCheck, updateProduct, getProductsByCategory } from "./test.controller";
 
 
 
