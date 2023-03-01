@@ -133,3 +133,19 @@ export const DeleteProduct: RequestHandler = async (req, res, next) => {
         next(error);
     }
 }
+
+export const getProductsByCategory: RequestHandler = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const products = await prisma.product.findMany({
+            where: { categoryId: Number(id) },
+        });
+        if (!products) {
+            return res.status(404).json({ success: false, message: "product not found" })
+        }
+        res.status(200).json({ success: true, message: "product Fetched 🔥", products })
+
+    } catch (error) {
+        next(error);
+    }
+}
